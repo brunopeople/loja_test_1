@@ -24,6 +24,9 @@ function close_database($conn){
     } catch (Exception $e){
         echo $e->getMessage();
     }
+
+
+    /**Pesquisa um Registro pelo ID em uma Tabela */
 }
 
 

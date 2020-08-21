@@ -9,6 +9,9 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="<?php echo BASEURL; ?>js/bootstrap.min.js"></script>
     <script src="<?php echo BASEURL; ?>js/main.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     </body>
 </html>
