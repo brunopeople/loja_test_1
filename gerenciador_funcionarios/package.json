@@ -22,6 +22,7 @@
         "moment": "^2.27.0",
         "vform": "^1.0.1",
         "vue-progressbar": "^0.7.5",
-        "vue-router": "^3.4.3"
+        "vue-router": "^3.4.3",
+        "watch": "^1.0.2"
     }
 }
