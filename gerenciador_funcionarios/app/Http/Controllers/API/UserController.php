@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
@@ -14,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return User::lastest()->get();
     }
 
     /**
@@ -25,7 +26,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required',
+            'data_nascimento' => 'required',
+            'data_entrada' => 'required',
+            'cargo'=> 'required',
+        ]);
+
+        return User::create([
+            'name' => $request['name'],
+            'data_nascimento' => $request['data_nascimento'],
+            'data_entrada' => $request['data_entrada'],
+            'cargo' => $request['cargo'],
+        ]);
     }
 
     /**
@@ -48,7 +61,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required',
+            'data_nascimento' => 'required',
+            'data_entrada' => 'required',
+            'cargo' => 'required'
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->update($request->all());
     }
 
     /**
@@ -59,6 +80,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return response()->json([
+            'message' => 'Funcionario deletado com sucesso!'
+        ]);
     }
 }
